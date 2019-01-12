@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="horizontal"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:gravity="center"
+    android:padding="16dp"
+    android:background="@drawable/rounded_bg_white">
+
+    <com.github.jlmd.animatedcircleloadingview.AnimatedCircleLoadingView
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:id="@+id/dialog_upload_circle_loading_view"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        app:mainColor="@color/colorPrimary"
+        app:secondaryColor="@color/colorPrimaryDark"
+        app:textColor="@android:color/black"
+        />
+
+    <TextView
+        android:id="@+id/dialog_upload_text_view"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Uploading Images..."
+        android:layout_marginLeft="16dp"
+        style="@style/TextAppearance.AppCompat.Body1"
+        android:textSize="18sp"/>
+
+</LinearLayout>

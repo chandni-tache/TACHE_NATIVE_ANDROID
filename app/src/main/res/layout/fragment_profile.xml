@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:descendantFocusability="blocksDescendants"
+    android:orientation="vertical">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="128dp"
+        android:background="@color/colorPrimary"
+        android:padding="18dp">
+
+        <com.mikhaellopez.circularimageview.CircularImageView
+            android:id="@+id/frag_profile_user_image_circle"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:scaleType="centerCrop"
+            android:src="@drawable/image_placeholder"
+            app:civ_border="false" />
+
+        <TextView
+            android:id="@+id/frag_profile_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_above="@+id/frag_profile_email"
+            android:layout_marginLeft="16dp"
+            android:layout_toRightOf="@id/frag_profile_user_image_circle"
+            android:ellipsize="end"
+            android:lines="1"
+            android:text="Sachin Parekh"
+            android:textColor="@android:color/white"
+            android:textSize="20sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/frag_profile_email"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="16dp"
+            android:layout_toRightOf="@id/frag_profile_user_image_circle"
+            android:ellipsize="end"
+            android:gravity="center_vertical"
+            android:lines="1"
+            android:text="hello_user@email.com"
+            android:textColor="@android:color/white"
+            android:textSize="12sp" />
+
+        <TextView
+            android:id="@+id/frag_profile_mobile"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/frag_profile_email"
+            android:layout_marginLeft="16dp"
+            android:layout_toRightOf="@id/frag_profile_user_image_circle"
+            android:ellipsize="end"
+            android:gravity="center_vertical"
+            android:lines="1"
+            android:text="1234567890"
+            android:textColor="@android:color/white"
+            android:textSize="12sp" />
+
+    </RelativeLayout>
+
+    <android.support.design.widget.TabLayout
+        android:id="@+id/frag_profile_tab_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="?attr/colorPrimary"
+        android:minHeight="?attr/actionBarSize"
+        app:tabIndicatorColor="@color/colorAccent"
+        app:tabIndicatorHeight="4dp" />
+
+    <android.support.v4.view.ViewPager
+        android:id="@+id/frag_profile_view_pager"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#E7E7E7"
+        android:visibility="gone" />
+
+    <FrameLayout
+        android:id="@+id/frag_profile_progress_container"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <ProgressBar
+            android:id="@+id/frag_profile_progress_bar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center" />
+
+        <TextView
+            android:id="@+id/frag_profile_error_view"
+            style="@style/TextAppearance.AppCompat.Headline"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="No data found"
+            android:visibility="gone" />
+
+        <Button
+            android:id="@+id/frag_profile_set_profile_info"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom|center_horizontal"
+            android:layout_margin="16dp"
+            android:background="@color/colorPrimaryDark"
+            android:paddingLeft="16dp"
+            android:paddingRight="16dp"
+            android:text="Set profile info"
+            android:textColor="@android:color/white"
+            android:visibility="gone" />
+    </FrameLayout>
+
+</LinearLayout>

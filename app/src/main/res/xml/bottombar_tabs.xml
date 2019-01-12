@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<tabs>
+    <!-- barColorWhenSelected="#5D4037"-->
+
+    <tab
+        icon="@drawable/task_inactive"
+        id="@+id/tab_home"
+        title="Audit" />
+
+    <tab
+        icon="@drawable/survey_inactive"
+        id="@+id/tab_trending"
+        title="Panel" />
+
+    <tab
+        icon="@drawable/notification_inactive"
+        id="@+id/tab_add_new"
+        title="Notifications" />
+
+    <tab
+        icon="@drawable/profile_inactive"
+        id="@+id/tab_leaderboard"
+        title="Profile" />
+
+    <tab
+        icon="@drawable/more_inactive"
+        id="@+id/tab_profile"
+        title="More" />
+</tabs>

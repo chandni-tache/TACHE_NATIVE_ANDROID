@@ -1,0 +1,63 @@
+{
+  "project_info": {
+    "project_number": "1007589711147",
+    "firebase_url": "https://tache-3e71f.firebaseio.com",
+    "project_id": "tache-3e71f",
+    "storage_bucket": "tache-3e71f.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1007589711147:android:395123e53aebde0c",
+        "android_client_info": {
+          "package_name": "com.tache"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1007589711147-guaj4igqlr0n974k73h50jg5kk7dcd0f.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.tache",
+            "certificate_hash": "2ce93a1fcf3aa1360813bbc69c0fdaaa2efbbfde"
+          }
+        },
+        {
+          "client_id": "1007589711147-5bc76ltjqb2pomq31iloj5cb68dgja3f.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.tache",
+            "certificate_hash": "392040dc6cd2c4ee15f784204889599a337a65d0"
+          }
+        },
+        {
+          "client_id": "1007589711147-7vr7qho8nnhpdpegdas10b6q29fr7ifl.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCG2ZJVosX624KKCYt8fMlRv9QvVjUhvgs"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1007589711147-7vr7qho8nnhpdpegdas10b6q29fr7ifl.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

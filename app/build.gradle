@@ -1,0 +1,121 @@
+buildscript {
+    repositories {
+        maven { url 'https://maven.fabric.io/public' }
+        jcenter()
+        maven {
+            url "https://maven.google.com"
+        }
+
+    }
+
+    dependencies {
+        classpath 'io.fabric.tools:gradle:1.+'
+    }
+}
+apply plugin: 'com.android.application'
+apply plugin: 'io.fabric'
+
+repositories {
+    maven { url "http://dl.bintray.com/jlmd/maven" }
+    maven { url "https://jitpack.io" }
+    maven { url 'http://dl.bintray.com/amulyakhare/maven' }
+    mavenCentral()
+    maven { url 'https://maven.fabric.io/public' }
+}
+
+android {
+    compileSdkVersion 26
+    buildToolsVersion '28.0.3'
+    defaultConfig {
+        applicationId "com.tache"
+        minSdkVersion 16
+        targetSdkVersion 26
+        multiDexEnabled true
+        versionCode 10
+        versionName "0.9"
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+    }
+    buildTypes {
+        release {
+            debuggable false
+            minifyEnabled true
+            shrinkResources true
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+        debug {
+            minifyEnabled false
+            shrinkResources false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+}
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    androidTestImplementation('com.android.support.test.espresso:espresso-core:2.2.2', {
+        exclude group: 'com.android.support', module: 'support-annotations'
+    })
+
+//    testimplementation "org.mockito:mockito-core:1.9.5"
+
+    implementation('com.crashlytics.sdk.android:crashlytics:2.6.6@aar') {
+        transitive = true;
+    }
+
+    // due to some problem related to commons-io in com.amazonaws:aws-android-sdk package
+    // we are providing commons-io dependency ourselves
+    implementation('com.amazonaws:aws-android-sdk-s3:2.4.0') {
+        exclude module: 'commons-io'
+        exclude group: 'commons-io'
+    }
+    implementation 'com.github.bumptech.glide:glide:3.7.0'
+    //noinspection GradleCompatible
+    implementation 'com.android.support:appcompat-v7:26.1.0'
+    implementation 'com.android.support:design:26.1.0'
+    implementation 'com.android.support:support-v4:26.1.0'
+    implementation 'com.android.support:percent:26.1.0'
+    implementation 'com.android.support:customtabs:26.1.0'
+    implementation 'com.android.support:cardview-v7:26.1.0'
+    implementation 'com.squareup.retrofit2:retrofit:2.1.0'
+    implementation 'com.squareup.retrofit2:converter-gson:2.1.0'
+    implementation 'com.roughike:bottom-bar:2.1.1'
+    implementation 'com.droidninja:filepicker:2.0.3'
+    implementation 'com.github.hotchemi:permissionsdispatcher:2.3.1'
+    implementation 'id.zelory:compressor:1.0.4'
+    implementation 'com.balysv:material-ripple:1.0.2'
+    implementation 'com.mikhaellopez:circularimageview:3.0.2'
+    implementation 'com.github.jlmd:AnimatedCircleLoadingView:1.1.5@aar'
+    implementation 'jp.wasabeef:recyclerview-animators:2.2.5'
+    implementation 'org.greenrobot:eventbus:3.0.0'
+    implementation 'com.facebook.rebound:rebound:0.3.8'
+    implementation 'com.jakewharton:butterknife:8.5.1'
+    //noinspection GradleCompatible
+    implementation 'com.google.android.gms:play-services-auth:16.0.1'
+    implementation 'com.google.android.gms:play-services-maps:16.0.0'
+    //noinspection GradleCompatible
+    implementation 'com.google.firebase:firebase-messaging:17.3.0'
+    implementation 'com.google.firebase:firebase-firestore:17.0.2'
+    implementation 'com.google.firebase:firebase-core:16.0.5'
+    implementation 'com.google.android.gms:play-services-places:16.0.0'
+    implementation 'com.google.android.gms:play-services-location:16.0.0'
+
+    //noinspection GradleCompatible
+    implementation 'com.google.android.gms:play-services-gcm:16.0.0'
+    implementation 'com.facebook.android:facebook-android-sdk:4.29.0'
+    implementation 'com.amazonaws:aws-android-sdk-core:2.4.0'
+    implementation 'commons-io:commons-io:2.4'
+    implementation 'com.android.support:multidex:1.0.1'
+    implementation 'com.github.jd-alexander:library:1.1.0'
+    implementation 'com.jakewharton.timber:timber:4.5.1'
+    implementation('com.digits.sdk.android:digits:2.0.6@aar') {
+        transitive = true;
+    }
+   // testimplementation 'junit:junit:4.12'
+    annotationProcessor 'com.github.hotchemi:permissionsdispatcher-processor:2.3.1'
+    annotationProcessor 'com.jakewharton:butterknife-compiler:8.5.1'
+
+
+}
+
+apply plugin: 'com.google.gms.google-services'
+com.google.gms.googleservices.GoogleServicesPlugin.config.disableVersionCheck = true

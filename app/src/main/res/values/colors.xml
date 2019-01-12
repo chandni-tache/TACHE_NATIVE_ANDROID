@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimaryLight">#6642D3</color>
+    <color name="colorPrimary">#673AB7</color>
+    <color name="colorPrimaryDark">#512DA8</color>
+    <color name="colorAccent">#03A9F4</color>
+    <color name="textColorPrimary">#212121</color>
+    <color name="textColorSecondary">#757575</color>
+    <color name="colorDivider">#BDBDBD</color>
+    <color name="colorIcon">#FFFFFF</color>
+    <color name="grey_one_more">#EDEDED</color>
+
+    <color name="blue">#0e84ff</color>
+
+    <color name="white">#ffffff</color>
+    <color name="Grey">#b33a3a3a</color>
+    <color name="bg_gray">#dad8db</color>
+    <item name="grey_light" type="color">#52efefef</item>
+    <item name="grey_dark" type="color">#f2ababab</item>
+
+    <color name="mainbackcolor">#2d2e30</color>
+    <color name="textTabColor">#9E9E9E</color>
+    <color name="yellow">#FFFF00</color>
+    <color name="green">#00FF00</color>
+    <color name="redd">#FF0000</color>
+
+</resources>

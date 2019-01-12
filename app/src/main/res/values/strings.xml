@@ -1,0 +1,160 @@
+<resources>
+    <string name="app_name">Tache</string>
+    <string name="base_url">ec2-52-66-116-5.ap-south-1.compute.amazonaws.com</string>
+    <string name="google_server_client_id">1007589711147-7vr7qho8nnhpdpegdas10b6q29fr7ifl.apps.googleusercontent.com</string>
+    <string name="facebook_app_id">369889653814452</string>
+<!--1454737461224465-->
+    <string name="action_settings">Settings</string>
+
+    <!-- Strings related to login -->
+
+    <string name="error_on_sign_up">Unable to signup.</string>
+    <string name="error_on_request_failed">Request failed!</string>
+
+    <string name="button_allow">Allow</string>
+    <string name="button_deny">Deny</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+
+    <string name="Rs">\u20B9</string>
+
+    <string name="permission_read_ext_storage_denied">Read external storage permission was denied. Please consider granting it in order to upload image!</string>
+    <string name="permission_read_ext_storage_never_askagain">Read external storage permission was denied with never ask again.</string>
+    <string name="permission_read_ext_storage_rationale">Read external storage permission is needed to show the select images.</string>
+    <string name="place_details">&lt;b&gt;%1$s&lt;/b&gt;&lt;br/&gt;&lt;i&gt;Place Id: %2$s&lt;/i&gt;&lt;br/&gt;Address: %3$s&lt;br/&gt;Phone: %4$s&lt;br/&gt;Website: %5$s</string>
+
+    <string name="geo_api_key">AIzaSyDnsFxx0l3W_JkrIfE8KZJXUW2Z8X38Kc4</string>
+    <string name="forget_password_message">Don\'t worry.\nJust fill in your email address and we\'ll help you reset your password.</string>
+    <string name="lipsum">It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using \'Content here, content here\', making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for \'lorem ipsum\' will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose (injected humour and the like).</string>
+    <string name="confirm_account_message">We have mailed you a pin.\nCopy and paste that here to verify your account.</string>
+    <string name="support_email">hello@tachetech.com</string>
+    <string name="play_store_link">https://play.google.com/store/apps/details?id=%1$s</string>
+    <string name="refer_message">Hey, Install Tache and use my referral code to earn rewards.\n%1$s</string>
+    <string name="error_on_sign_in">Unable to login</string>
+    <string name="check_internet">Kindly check your internet connection</string>
+    <string name="error_email_required">Enter a valid email</string>
+    <string name="error_password_required">Password required</string>
+    <string name="error_password_confirm_required">Enter password again</string>
+    <string name="error_name_required">Name required</string>
+    <string name="error_name_short_required">Name too short</string>
+    <string name="error_mobile_required">Enter a valid phone number</string>
+    <string name="error_password_match">Passwords didnt match</string>
+    <string name="redeem_message">Add referral code and redeem your ₹%1$s now.</string>
+
+    <string-array name="gender_array">
+        <item>Male</item>
+        <item>Female</item>
+    </string-array>
+
+    <string-array name="qualification_array">
+        <item>Select</item>
+        <item>Matriculate</item>
+        <item>Bachelor in Computers</item>
+        <item>Bachelor in Mechanical</item>
+        <item>Bachelor in Electornics</item>
+        <item>Master in Computers</item>
+        <item>Master in Mechanical</item>
+        <item>Master in Electornics</item>
+        <item>BBA</item>
+        <item>MBA in Finance</item>
+        <item>MBA in Marketing</item>
+        <item>MBA in Management</item>
+        <item>BCA</item>
+        <item>MCA</item>
+        <item>BSc</item>
+        <item>MScCS</item>
+        <item>MSc-IT</item>
+        <item>BArch</item>
+        <item>BCom</item>
+        <item>BA</item>
+        <item>BJMC</item>
+        <item>BAJMC</item>
+        <item>BMM</item>
+        <item>BAMC</item>
+    </string-array>
+
+    <string-array name="account_type_array">
+        <item>Savings</item>
+        <item>Current</item>
+        <item>Others</item>
+    </string-array>
+
+    <string-array name="employment_array">
+        <item>Select</item>
+        <item>Salaried</item>
+        <item>Self employed</item>
+        <item>Unemployed</item>
+        <item>Student</item>
+    </string-array>
+
+    <string-array name="designation_array">
+        <item>None</item>
+        <item>Manager</item>
+        <item>Senior Manager</item>
+        <item>General Manager</item>
+        <item>CEO</item>
+        <item>CTO</item>
+        <item>CFO</item>
+        <item>President</item>
+        <item>Vice President</item>
+        <item>Technical Staff</item>
+        <item>Non-Technical Staff</item>
+        <item>Executive</item>
+        <item>Other</item>
+    </string-array>
+
+    <string-array name="industry_array">
+        <item>Select</item>
+        <item>Automobile</item>
+        <item>Accounting</item>
+        <item>Assistance</item>
+        <item>Arts and Recreation Services</item>
+        <item>Construction</item>
+        <item>Education</item>
+        <item>Financial Services and Banking</item>
+        <item>Health care</item>
+        <item>Hospitality</item>
+        <item>Human Resources</item>
+        <item>Information Technology</item>
+        <item>Manufacturing</item>
+        <item>Media</item>
+        <item>Real Estate</item>
+        <item>Retail</item>
+        <item>Agriculture, Forestry, Fishing</item>
+        <item>Mining</item>
+        <item>Manufacturing</item>
+        <item>Electricity, Gas, Water, Waste Services</item>
+        <item>Construction</item>
+        <item>Wholesale Trade</item>
+        <item>Retail Trade</item>
+        <item>Accommodation and Food Services</item>
+        <item>Transport, Postal and Warehousing</item>
+        <item>Information Media and Telecommunications</item>
+        <item>Financial and Insurance Services</item>
+        <item>Rental, Hiring and Real Estate Services</item>
+        <item>Professional, Scientific, Technical Services</item>
+        <item>Administrative and Support Services</item>
+        <item>Public Administration and Safety</item>
+        <item>Education and Training</item>
+    </string-array>
+
+    <string-array name="work_experience_array">
+        <item>None</item>
+        <item>1–2 years</item>
+        <item>2–5 years</item>
+        <item>5–10 years</item>
+        <item>More than 10 years</item>
+    </string-array>
+
+    <string-array name="annual_income_array">
+        <item>Select</item>
+        <item>Less than 1 lakh</item>
+        <item>1–2 lakhs</item>
+        <item>2–5 lakhs</item>
+        <item>5–10 lakhs</item>
+        <item>10–25 lakhs</item>
+        <item>25–50 lakhs</item>
+        <item>More than 50 lakhs</item>
+    </string-array>
+
+</resources>

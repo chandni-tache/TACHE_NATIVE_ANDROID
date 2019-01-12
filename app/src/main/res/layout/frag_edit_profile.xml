@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@android:color/white"
+    android:clickable="true"
+    android:padding="16dp">
+
+    <View
+        android:id="@+id/frag_edit_profile_indicator_1"
+        android:layout_width="40dp"
+        android:layout_height="4dp"
+        android:layout_marginRight="4dp"
+        android:background="@color/colorAccent" />
+
+    <View
+        android:id="@+id/frag_edit_profile_indicator_2"
+        android:layout_width="40dp"
+        android:layout_height="4dp"
+        android:layout_toRightOf="@id/frag_edit_profile_indicator_1"
+        android:background="@color/colorDivider" />
+
+    <com.mikhaellopez.circularimageview.CircularImageView
+        android:id="@+id/frag_edit_profile_circle_user_image"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:layout_alignParentRight="true"
+        android:scaleType="centerCrop"
+        android:src="@drawable/profile_inactive"
+        app:civ_border="false" />
+
+    <ImageView
+        android:id="@+id/frag_edit_profile_select_image"
+        android:layout_width="36dp"
+        android:layout_height="36dp"
+        android:layout_alignBottom="@id/frag_edit_profile_circle_user_image"
+        android:layout_alignParentRight="true"
+        android:background="@drawable/circle_blue"
+        android:src="@drawable/ic_action_camera" />
+
+    <TextView
+        android:id="@+id/frag_edit_profile_title"
+        style="@style/TextAppearance.AppCompat.Headline"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/frag_edit_profile_indicator_1"
+        android:layout_marginTop="24dp"
+        android:text="Personal Details" />
+
+    <include
+        android:id="@+id/frag_edit_profile_personal_info_table"
+        layout="@layout/part_personal_info_table"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/frag_edit_profile_buttons_container"
+        android:layout_below="@id/frag_edit_profile_select_image" />
+
+    <include
+        android:id="@+id/frag_edit_profile_professional_info_table"
+        layout="@layout/part_professional_info_table"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/frag_edit_profile_buttons_container"
+        android:layout_below="@id/frag_edit_profile_select_image"
+        android:visibility="gone" />
+
+    <android.support.percent.PercentFrameLayout
+        android:id="@+id/frag_edit_profile_buttons_container"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:gravity="center">
+
+        <TextView
+            android:id="@+id/frag_edit_profile_whats_this"
+            android:layout_height="wrap_content"
+            android:background="@drawable/rectangle_border_blue"
+            android:gravity="center"
+            android:padding="8dp"
+            android:text="What's this?"
+            android:textColor="@color/colorPrimary"
+            android:textSize="16sp"
+            android:visibility="gone"
+            app:layout_widthPercent="48%" />
+
+        <TextView
+            android:id="@+id/frag_edit_profile_next"
+            android:layout_height="wrap_content"
+            android:layout_gravity="right"
+            android:background="@color/colorPrimary"
+            android:gravity="center"
+            android:padding="8dp"
+            android:text="Next"
+            android:textColor="@android:color/white"
+            android:textSize="16sp"
+            app:layout_widthPercent="48%" />
+
+    </android.support.percent.PercentFrameLayout>
+
+</RelativeLayout>

@@ -1,0 +1,199 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <TableLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingBottom="8dp"
+        android:paddingTop="8dp"
+        android:stretchColumns="1,2">
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_marginBottom="4dp"
+            android:layout_marginTop="4dp"
+            android:background="@drawable/bottom_line">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_column="1"
+                android:padding="8dp"
+                android:text="Qualification"
+                android:textSize="16sp"
+                android:textStyle="bold" />
+
+            <Spinner
+                android:id="@+id/frag_professional_qualification"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_column="2"
+                android:background="@android:color/transparent"
+                android:entries="@array/qualification_array"
+                android:paddingBottom="8dp"
+                android:paddingRight="8dp"
+                android:paddingTop="8dp"
+                android:textSize="16sp" />
+
+        </TableRow>
+
+        <TableRow
+            android:layout_marginBottom="4dp"
+            android:layout_marginTop="4dp"
+            android:background="@drawable/bottom_line">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_column="1"
+                android:padding="8dp"
+                android:text="Professional Detail"
+                android:textSize="16sp"
+                android:textStyle="bold" />
+
+            <Spinner
+                android:id="@+id/frag_professional_employment"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_column="2"
+                android:entries="@array/employment_array"
+                android:paddingBottom="8dp"
+                android:paddingRight="8dp"
+                android:paddingTop="8dp"
+                android:textSize="16sp" />
+
+        </TableRow>
+
+        <TableRow
+            android:layout_marginBottom="4dp"
+            android:layout_marginTop="4dp"
+            android:background="@drawable/bottom_line">
+
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_column="1"
+                android:padding="8dp"
+                android:text="Designation"
+                android:textSize="16sp"
+                android:textStyle="bold" />
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_column="2"
+                android:orientation="vertical">
+
+                <Spinner
+                    android:id="@+id/frag_professional_designation"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:entries="@array/designation_array"
+                    android:paddingBottom="8dp"
+                    android:paddingRight="8dp"
+                    android:paddingTop="8dp"
+                    android:textSize="16sp" />
+
+                <EditText
+                    android:id="@+id/frag_professional_designation_other"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@null"
+                    android:hint="Describe other"
+                    android:paddingBottom="8dp"
+                    android:paddingRight="8dp"
+                    android:paddingTop="8dp"
+                    android:textSize="16sp"
+                    android:visibility="gone" />
+            </LinearLayout>
+
+        </TableRow>
+
+
+        <TableRow
+            android:layout_marginBottom="4dp"
+            android:layout_marginTop="4dp"
+            android:background="@drawable/bottom_line">
+
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_column="1"
+                android:padding="8dp"
+                android:text="Industry"
+                android:textSize="16sp"
+                android:textStyle="bold" />
+
+            <Spinner
+                android:id="@+id/frag_professional_industry"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_column="2"
+                android:entries="@array/industry_array"
+                android:paddingBottom="8dp"
+                android:paddingRight="8dp"
+                android:paddingTop="8dp"
+                android:textSize="16sp" />
+
+        </TableRow>
+
+        <TableRow
+            android:layout_marginBottom="4dp"
+            android:layout_marginTop="4dp"
+            android:background="@drawable/bottom_line">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_column="1"
+                android:padding="8dp"
+                android:text="Work Experience"
+                android:textSize="16sp"
+                android:textStyle="bold" />
+
+            <Spinner
+                android:id="@+id/frag_professional_work_experience"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_column="2"
+                android:entries="@array/work_experience_array"
+                android:paddingBottom="8dp"
+                android:paddingRight="8dp"
+                android:paddingTop="8dp"
+                android:textSize="16sp" />
+
+        </TableRow>
+
+        <TableRow
+            android:layout_marginBottom="4dp"
+            android:layout_marginTop="4dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_column="1"
+                android:padding="8dp"
+                android:text="Annual Income"
+                android:textSize="16sp"
+                android:textStyle="bold" />
+
+            <Spinner
+                android:id="@+id/frag_professional_annual_income"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_column="2"
+                android:entries="@array/annual_income_array"
+                android:paddingBottom="8dp"
+                android:paddingRight="8dp"
+                android:paddingTop="8dp"
+                android:textSize="16sp" />
+
+        </TableRow>
+
+    </TableLayout>
+
+</ScrollView>

@@ -2,6 +2,7 @@ package com.tache.fragments;
 
 import android.app.Dialog;
 import android.content.Context;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
@@ -74,8 +75,13 @@ public class BasicInfoFragment extends Fragment implements View.OnClickListener 
     @Override
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        sharedPrefsUtils = SharedPrefsUtils.getInstance(getContext());
 
+        SharedPreferences myPref = getActivity().getSharedPreferences("count", Context.MODE_PRIVATE);
+       String st = myPref.getString("countValue",null);
+      System.out.println("dfghjhgfdsdfghgfds========"+st);
+       countSurvey.setText(String.valueOf(st));
+        sharedPrefsUtils = SharedPrefsUtils.getInstance(getContext());
+        System.out.println("qwertyuipoiuytrqwert======"+String.valueOf(sharedPrefsUtils.getIntegerPreference(SharedPrefsUtils.TOTAL_SURVEY_COMPLETED, 0)));
         countTask.setText(String.valueOf(sharedPrefsUtils.getIntegerPreference(SharedPrefsUtils.TOTAL_MISSIONS_COMPLETED, 0)));
         countSurvey.setText(String.valueOf(sharedPrefsUtils.getIntegerPreference(SharedPrefsUtils.TOTAL_SURVEY_COMPLETED, 0)));
         balance.setText(String.valueOf(sharedPrefsUtils.getFloatPreference(SharedPrefsUtils.TOTAL_EARNINGS, 0)));
@@ -95,8 +101,11 @@ public class BasicInfoFragment extends Fragment implements View.OnClickListener 
 
     @Subscribe(sticky = true, threadMode = ThreadMode.MAIN)
     public void setData(User user) {
+        SharedPreferences myPref = getActivity().getSharedPreferences("count", Context.MODE_PRIVATE);
+        String st = myPref.getString("countValue",null);
+        System.out.println("Completed Survey ===== "+user.getTotal_survey_completed());
         countTask.setText(String.valueOf(user.getTotal_missions_completed()));
-        countSurvey.setText(String.valueOf(user.getTotal_survey_completed()));
+        countSurvey.setText(st);
         balance.setText(String.valueOf(user.getTotal_earnings()));
     }
 

@@ -43,11 +43,11 @@ public class Mission implements Parcelable {
 
     @SerializedName("location_lat")
     @Expose
-    private double location_lat;
+    private float location_lat;
 
     @SerializedName("location_long")
     @Expose
-    private double location_long;
+    private float location_long;
 
     @SerializedName("date_from")
     @Expose
@@ -85,8 +85,8 @@ public class Mission implements Parcelable {
         company_name = in.readString();
         company_logo = in.readString();
         location = in.readString();
-        location_lat = in.readDouble();
-        location_long = in.readDouble();
+        location_lat = in.readFloat();
+        location_long = in.readFloat();
         date_from = in.readString();
         date_to = in.readString();
         day_allowed = in.readString();
@@ -99,7 +99,7 @@ public class Mission implements Parcelable {
     public static final Creator<Mission> CREATOR = new Creator<Mission>() {
         @Override
         public Mission createFromParcel(Parcel in) {
-            return new Mission(in);
+            return new  Mission(in);
         }
 
         @Override
@@ -164,19 +164,19 @@ public class Mission implements Parcelable {
         this.location = location;
     }
 
-    public double getLocation_lat() {
+    public float getLocation_lat() {
         return location_lat;
     }
 
-    public void setLocation_lat(double location_lat) {
+    public void setLocation_lat(float location_lat) {
         this.location_lat = location_lat;
     }
 
-    public double getLocation_long() {
+    public float getLocation_long() {
         return location_long;
     }
 
-    public void setLocation_long(double location_long) {
+    public void setLocation_long(float location_long) {
         this.location_long = location_long;
     }
 
@@ -253,8 +253,8 @@ public class Mission implements Parcelable {
         dest.writeString(company_name);
         dest.writeString(company_logo);
         dest.writeString(location);
-        dest.writeDouble(location_lat);
-        dest.writeDouble(location_long);
+        dest.writeFloat(location_lat);
+        dest.writeFloat(location_long);
         dest.writeString(date_from);
         dest.writeString(date_to);
         dest.writeString(day_allowed);

@@ -3,7 +3,7 @@
     <string name="base_url">ec2-52-66-116-5.ap-south-1.compute.amazonaws.com</string>
     <string name="google_server_client_id">1007589711147-7vr7qho8nnhpdpegdas10b6q29fr7ifl.apps.googleusercontent.com</string>
     <string name="facebook_app_id">369889653814452</string>
-<!--1454737461224465-->
+    <!--1454737461224465-->
     <string name="action_settings">Settings</string>
 
     <!-- Strings related to login -->
@@ -23,7 +23,7 @@
     <string name="permission_read_ext_storage_rationale">Read external storage permission is needed to show the select images.</string>
     <string name="place_details">&lt;b&gt;%1$s&lt;/b&gt;&lt;br/&gt;&lt;i&gt;Place Id: %2$s&lt;/i&gt;&lt;br/&gt;Address: %3$s&lt;br/&gt;Phone: %4$s&lt;br/&gt;Website: %5$s</string>
 
-    <string name="geo_api_key">AIzaSyDnsFxx0l3W_JkrIfE8KZJXUW2Z8X38Kc4</string>
+    <string name="geo_api_key">AIzaSyArDcWVZBmkFuhPTQaF1-Yf4u7xrmhuUNk</string>
     <string name="forget_password_message">Don\'t worry.\nJust fill in your email address and we\'ll help you reset your password.</string>
     <string name="lipsum">It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using \'Content here, content here\', making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for \'lorem ipsum\' will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose (injected humour and the like).</string>
     <string name="confirm_account_message">We have mailed you a pin.\nCopy and paste that here to verify your account.</string>
@@ -51,10 +51,10 @@
         <item>Matriculate</item>
         <item>Bachelor in Computers</item>
         <item>Bachelor in Mechanical</item>
-        <item>Bachelor in Electornics</item>
+        <item>Bachelor in Electronics</item>
         <item>Master in Computers</item>
         <item>Master in Mechanical</item>
-        <item>Master in Electornics</item>
+        <item>Master in Electronics</item>
         <item>BBA</item>
         <item>MBA in Finance</item>
         <item>MBA in Marketing</item>
@@ -148,7 +148,7 @@
 
     <string-array name="annual_income_array">
         <item>Select</item>
-        <item>Less than 1 lakh</item>
+        <item>Less than 1 lakhs</item>
         <item>1–2 lakhs</item>
         <item>2–5 lakhs</item>
         <item>5–10 lakhs</item>

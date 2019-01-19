@@ -93,6 +93,9 @@ public class TaskDetailActivity extends AppCompatActivity implements WebViewFrag
         });
 
         Glide.with(this).load(mission.getCompany_logo()).into(imageView);
+        System.out.println("Image == "+mission.getCompany_logo());
+        System.out.println("Mission Id = "+mission.getId());
+        System.out.println("Mission Survey ====  "+mission.getSurvey()+ " mission Location ==== "+mission.getLocation_lat()+" ttt "+mission.getLocation_long()+" mmm "+mission.getLocation());
         daysAllowed.setText(mission.getDay_allowed());
         date.setText(TimeFormatHelper.getInDM(mission.getDate_from()) + " - " + TimeFormatHelper.getInDMY(mission.getDate_to()));
         price.setText(String.valueOf(mission.getPrice()));
@@ -100,6 +103,9 @@ public class TaskDetailActivity extends AppCompatActivity implements WebViewFrag
         aboutText.setText(Build.VERSION.SDK_INT >= Build.VERSION_CODES.N ? Html.fromHtml(mission.getAbout(), Html.FROM_HTML_MODE_COMPACT) : Html.fromHtml(mission.getAbout()).toString());
         ensureText.setText(Build.VERSION.SDK_INT >= Build.VERSION_CODES.N ? Html.fromHtml(mission.getEnsure_things(), Html.FROM_HTML_MODE_COMPACT) : Html.fromHtml(mission.getEnsure_things()).toString());
         pointsText.setText(Build.VERSION.SDK_INT >= Build.VERSION_CODES.N ? Html.fromHtml(mission.getKey_points(), Html.FROM_HTML_MODE_COMPACT) : Html.fromHtml(mission.getKey_points()).toString());
+
+        System.out.println("My Get Location ====  "+mission.getLocation());
+
 
         if (TextUtils.isEmpty(fragmentName))
             start.setVisibility(View.GONE);
@@ -183,7 +189,7 @@ public class TaskDetailActivity extends AppCompatActivity implements WebViewFrag
         linksService.missionApply(Helper.getAuthHeader(this), id).enqueue(new Callback<JsonObject>() {
             @Override
             public void onResponse(Call<JsonObject> call, Response<JsonObject> response) {
-                System.out.println("Mu URL ====   "+linksService.toString().length());
+                System.out.println("My URL ====   "+linksService.toString().length());
                 System.out.println("Hello user two");
                 if (response.isSuccessful()) {
                     start.setVisibility(View.GONE);

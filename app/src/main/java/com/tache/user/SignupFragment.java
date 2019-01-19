@@ -35,6 +35,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.tache.R;
+import com.tache.activity.MainActivity;
 import com.tache.animation.FlipAnimation;
 import com.tache.exceptions.UnhandledErrorResponseException;
 import com.tache.receivers.ConnectivityReceiver;
@@ -237,16 +238,21 @@ public class SignupFragment extends Fragment {
                 showProgress(false);
                 if (response.isSuccessful()) {
                     Helper.saveSignInResponse(getContext(), Constants.LOGIN_TYPE_EMAIL, response.body());
-                    Intent i = new Intent(getContext(),LoginActivity.class);
+                    Intent i = new Intent(getContext(), MainActivity.class);
                     i.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                     getContext().startActivity(i);
                     getActivity().finish();
-                    /*if (loginSignUpSwitcher != null)
+                   /* if (loginSignUpSwitcher != null)
                         loginSignUpSwitcher.switchConfirmAccount("Verify account", !response.body().getUser().is_mobile_verified());*/
+
+
                 } else {
                     try {
                         if (response.code() >= 500) {
                             throw new UnhandledErrorResponseException("Internal server error");
+                        }
+                        if(response.code()==400){
+                            throw new UnhandledErrorResponseException("User Already Exist");
                         }
                         Converter<ResponseBody, SignupError> errorConverter = retrofit.responseBodyConverter(SignupError.class, new Annotation[0]);
                         try {
@@ -267,6 +273,7 @@ public class SignupFragment extends Fragment {
                         }
                     } catch (UnhandledErrorResponseException ex) {
                         Toast.makeText(getContext(), getString(R.string.error_on_sign_up), Toast.LENGTH_LONG).show();
+                        Toast.makeText(getActivity(), "User Already Exist", Toast.LENGTH_SHORT).show();
                     }
                 }
             }

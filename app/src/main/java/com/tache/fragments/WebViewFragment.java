@@ -40,7 +40,9 @@ public class WebViewFragment extends Fragment {
         WebViewFragment fragment = new WebViewFragment();
         Bundle args = new Bundle();
         args.putString(ARG_PARAM1, url);
+
         fragment.setArguments(args);
+        System.out.println("My URL ==== "+fragment);
         return fragment;
     }
 
@@ -107,6 +109,8 @@ public class WebViewFragment extends Fragment {
         webview.setWebViewClient(webViewClient);
 
         webview.loadUrl(url);
+
+        System.out.println("My URL 2 ====  "+url);
     }
 
     WebViewClient webViewClient = new WebViewClient() {

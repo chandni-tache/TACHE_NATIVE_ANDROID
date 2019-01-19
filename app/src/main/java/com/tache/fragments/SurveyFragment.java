@@ -128,6 +128,8 @@ public class SurveyFragment extends Fragment {
         unbinder.unbind();
     }
 
+
+
     public void lastTab() {
         viewPager.setCurrentItem(pagerAdapter.getCount() - 1, false);
     }

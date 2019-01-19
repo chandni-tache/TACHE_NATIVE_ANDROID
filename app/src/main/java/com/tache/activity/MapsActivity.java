@@ -77,6 +77,7 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
     private List<Polyline> polylines;
     private ArrayList<Mission> missionArrayList;
 
+
     public static Intent getNewIntent(Context context, ArrayList<Mission> missions) {
         Intent intent = new Intent(context, MapsActivity.class);
         intent.putParcelableArrayListExtra(EXTRA_ITEMS, missions);
@@ -104,12 +105,25 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
         int listSize = missionArrayList == null ? 0 : missionArrayList.size();
         latLng = new LatLng[listSize];
 
+        System.out.println("Latitude ===== "+listSize);
         UniversalPagerAdapter universalPagerAdapter = new UniversalPagerAdapter();
 
         for (int i = 0; i < listSize; i++) {
-            Mission mission = missionArrayList.get(i);
-            latLng[i] = new LatLng(mission.getLocation_lat(), mission.getLocation_long());
-            universalPagerAdapter.addView(getItemView(mission));
+                try {
+                    Mission mission = missionArrayList.get(i);
+                    System.out.println("eeeeeee === "+missionArrayList.get(i));
+
+                  //  latLng[i] = new LatLng(28.536957, 77.271521);
+                    latLng[i] = new LatLng(mission.getLocation_lat(), mission.getLocation_long());
+                   universalPagerAdapter.addView(getItemView(mission));
+           System.out.println("ffffffffff  ==v "+mission);
+            System.out.println("ttttttttt  ==v "+latLng[i]);
+                }catch (Exception e){
+                    e.printStackTrace();
+                }
+
+
+
         }
 
         viewPager.setAdapter(universalPagerAdapter);
@@ -135,9 +149,11 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
         ((TextView) view.findViewById(R.id.item_mission_title)).setText(mission.getSurvey().getTitle());
         ((TextView) view.findViewById(R.id.item_mission_brand_name)).setText(mission.getCompany_name());
         String[] locationSplit = mission.getLocation().split(",");
+        System.out.println("jjjjjjjjj=========  "+locationSplit[locationSplit.length - 1]);
         ((TextView) view.findViewById(R.id.item_mission_location)).setText(locationSplit[locationSplit.length - 1]);
         ((TextView) view.findViewById(R.id.item_mission_date_range)).setText(TimeFormatHelper.getInDMY(mission.getDate_from()) + " - " + TimeFormatHelper.getInDMY(mission.getDate_to()));
         ((TextView) view.findViewById(R.id.item_mission_price)).setText(String.valueOf(mission.getPrice()));
+
 
         return view;
     }
@@ -147,10 +163,13 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
         mMap = googleMap;
         MapStyleOptions style = MapStyleOptions.loadRawResourceStyle(this, R.raw.style_json);
         mMap.setMapStyle(style);
+        mMap.setMapType(GoogleMap.MAP_TYPE_HYBRID);
 
 
         MarkerOptions[] markerOptions = new MarkerOptions[latLng.length];
         final Marker[] markers = new Marker[latLng.length];
+
+        System.out.println("ssssssss ====  "+latLng.length);
 
         for (int i = 0; i < latLng.length; i++) {
             markerOptions[i] = new MarkerOptions().position(latLng[i]).title("title: " + i);
@@ -162,7 +181,8 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
         markers[0].setIcon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_BLUE));
         currMarker = markers[0];
 
-
+        System.out.println(" yyyyyyyyyyyyy ==== "+currMarker);
+        System.out.println(" zzzzzzzzzzzzz ==== "+currLocation);
         viewPager.addOnPageChangeListener(new ViewPager.SimpleOnPageChangeListener() {
             @Override
             public void onPageSelected(int position) {
@@ -295,8 +315,15 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
     private void initLocationHelper() {
 
         if (progressDialog == null) {
-            progressDialog = new ProgressDialog(this);
-            progressDialog.setMessage("Obtaining current location");
+           try {
+               progressDialog = new ProgressDialog(this);
+               progressDialog.setMessage("Obtaining current location");
+               locationHelper.buildClient();
+
+           }catch (Exception e){
+                e.printStackTrace();
+           }
+
         }
 
         if (locationHelper != null) {

@@ -85,6 +85,7 @@ public class StartSurveyMissionActivity extends AppCompatActivity {
 
         webView.setWebChromeClient(new MyWebViewClient());
         webView.setWebViewClient(webViewClient);
+        webView.canGoBack();
 
         loadUrl();
     }
@@ -172,7 +173,10 @@ public class StartSurveyMissionActivity extends AppCompatActivity {
                 }
             }
         }
-
+        public boolean shouldOverrideUrlLoading(WebView view, String url) {
+            view.loadUrl(url);
+            return true;
+        }
         //For Android 3.0+
         public void openFileChooser(ValueCallback<Uri> uploadMsg) {
             mUM = uploadMsg;
@@ -297,12 +301,14 @@ public class StartSurveyMissionActivity extends AppCompatActivity {
                     if (webView.canGoBack()) {
                         webView.goBack();
                     } else {
-                        onBackPressed();
+                        webView.canGoBack();
+                        finish();
                     }
                     return true;
             }
         }
-        return super.onKeyDown(keyCode, event);
+      // return false;
+         return super.onKeyDown(keyCode, event);
     }
 
     @Override
@@ -315,5 +321,9 @@ public class StartSurveyMissionActivity extends AppCompatActivity {
         Constants.RELOAD_MISSION = reload;
         Constants.RELOAD_SURVEY = reload;
         super.onBackPressed();
+        /*Intent moveback =
+                new Intent(getApplicationContext(), StartSurveyMissionActivity.class);
+        startActivity(moveback);
+        finish();*/
     }
 }

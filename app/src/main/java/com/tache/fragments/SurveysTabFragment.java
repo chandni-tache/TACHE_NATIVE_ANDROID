@@ -1,5 +1,7 @@
 package com.tache.fragments;
 
+import android.content.Context;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
@@ -191,13 +193,18 @@ public class SurveysTabFragment extends Fragment implements ConnectivityReceiver
     private void initializeRecyclerHistory() {
         surveysHistoryList = new ArrayList<>();
         adapterSurveysHistory = new SurveysHistoryRecyclerAdapter(getContext(), surveysHistoryList);
+        System.out.println("My Survey List ====  "+surveysHistoryList);
         adapterSurveysHistory.registerAdapterDataObserver(new RecyclerView.AdapterDataObserver() {
             @Override
             public void onItemRangeInserted(int positionStart, int itemCount) {
                 super.onItemRangeInserted(positionStart, itemCount);
+              System.out.println("hnhnhnhn... ==== "+positionStart+" gn "+itemCount);
                 if (positionStart == 0) {
                     recyclerView.smoothScrollToPosition(0);
                 }
+                SharedPreferences.Editor myPref = getActivity().getSharedPreferences("count", Context.MODE_PRIVATE).edit();
+                myPref.putString("countValue",String.valueOf(itemCount));
+                myPref.apply();
             }
         });
         recyclerView.setAdapter(new AlphaInAnimationAdapter(new ScaleInAnimationAdapter(adapterSurveysHistory)));

@@ -13,6 +13,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
 import com.google.gson.Gson;
@@ -90,7 +91,14 @@ public class MissionsRecyclerAdapter extends EasyRecyclerViewAdapter<Mission> {
             dateRange.setText(TimeFormatHelper.getInDMY(item.getDate_from()) + " - " + TimeFormatHelper.getInDMY(item.getDate_to()));
             price.setText(String.valueOf(item.getPrice()));
 
-//                switch (item.getApproval_status()) {
+            System.out.println("Hello Mission = ====  "+item.getSurvey().getTitle());
+            System.out.println(" Mission Id 1 ===== "+item.getSurvey().getId());
+            Toast.makeText(context, item.getSurvey().getTitle(), Toast.LENGTH_SHORT).show();
+
+
+
+
+//                switch (item.getApproval_status()) {Mission Id 1 ===== 0b3decb0-aac5-46e0-b330-bb66e4493a14
 //                    case 1:
 //                        cardView.setCardBackgroundColor(ContextCompat.getColor(context, R.color.green));
 //                        break;

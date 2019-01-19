@@ -18,6 +18,8 @@ import com.tache.R;
 import com.tache.rest.ApiUtils;
 import com.tache.rest.models.response.SigninResponse;
 import com.tache.rest.services.UserService;
+import com.tache.utils.Constants;
+import com.tache.utils.Helper;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -137,7 +139,7 @@ public class AuthenticationHelperFragment extends Fragment {
             @Override
             public void onResponse(Call<SigninResponse> call, Response<SigninResponse> response) {
                 if (response.isSuccessful()) {
-//                    Helper.saveSignInResponse(getContext(), Constants.LOGIN_TYPE_EMAIL, response.body());
+                    Helper.saveSignInResponse(getContext(), Constants.LOGIN_TYPE_EMAIL, response.body());
                 } else {
                     Toast.makeText(getContext(), "That is not valid", Toast.LENGTH_SHORT).show();
                 }

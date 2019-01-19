@@ -101,11 +101,13 @@ public class BasicInfoFragment extends Fragment implements View.OnClickListener 
 
     @Subscribe(sticky = true, threadMode = ThreadMode.MAIN)
     public void setData(User user) {
-        SharedPreferences myPref = getActivity().getSharedPreferences("count", Context.MODE_PRIVATE);
-        String st = myPref.getString("countValue",null);
-        System.out.println("Completed Survey ===== "+user.getTotal_survey_completed());
+//        SharedPreferences myPref = getActivity().getSharedPreferences("count", Context.MODE_PRIVATE);
+//        String st = myPref.getString("countValue",null);
+//        System.out.println("Completed Survey ===== "+user.getTotal_survey_completed());
+
+        int panelCount= SharedPrefsUtils.getInstance(getContext()).getIntegerPreference("count_history",0);
         countTask.setText(String.valueOf(user.getTotal_missions_completed()));
-        countSurvey.setText(st);
+        countSurvey.setText(panelCount+"");
         balance.setText(String.valueOf(user.getTotal_earnings()));
     }
 

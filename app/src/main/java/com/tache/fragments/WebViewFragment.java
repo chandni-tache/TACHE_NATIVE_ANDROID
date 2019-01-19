@@ -116,6 +116,7 @@ public class WebViewFragment extends Fragment {
     WebViewClient webViewClient = new WebViewClient() {
         @Override
         public boolean shouldOverrideUrlLoading(WebView view, String url) {
+            System.out.println("Abcd ==== "+webViewClient.toString());
             Log.d("CHECK", url);
             if (url.contains("/callback/")) {
                 Uri uri = Uri.parse(url);

@@ -83,7 +83,7 @@ public class SurveysRecyclerAdapter extends EasyRecyclerViewAdapter<Surveys> {
                     start.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                     context.startActivity(start);
 
-                   // System.out.println("Hello Sonu ke titu ki sweeti == "+String.format(LinksService.TASK_URL, dataList.get(getAdapterPosition()).getId(), Helper.getAuthKey(context)));
+                    System.out.println("Hello url == "+String.format(LinksService.TASK_URL, dataList.get(getAdapterPosition()).getId(), Helper.getAuthKey(context)));
 
                     Toast.makeText(context, "Jai ho.....", Toast.LENGTH_SHORT).show();
                     //using Activity for webView for now..

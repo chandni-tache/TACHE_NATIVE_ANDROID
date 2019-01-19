@@ -40,6 +40,7 @@
     <string name="error_mobile_required">Enter a valid phone number</string>
     <string name="error_password_match">Passwords didnt match</string>
     <string name="redeem_message">Add referral code and redeem your ₹%1$s now.</string>
+    <string name="minimum_six_digits">Please enter minimum six digits</string>
 
     <string-array name="gender_array">
         <item>Male</item>

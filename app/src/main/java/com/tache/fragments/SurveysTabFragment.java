@@ -5,6 +5,7 @@ import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
+import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
@@ -24,6 +25,7 @@ import com.tache.rest.models.response.SurveysHistory;
 import com.tache.rest.services.LinksService;
 import com.tache.utils.EndlessRecyclerViewScrollListener;
 import com.tache.utils.Helper;
+import com.tache.utils.SharedPrefsUtils;
 
 import java.util.ArrayList;
 
@@ -63,7 +65,7 @@ public class SurveysTabFragment extends Fragment implements ConnectivityReceiver
     private boolean hasLoadedOnce = false;
     private boolean isViewCreated = false;
     private boolean isLoaded = false;
-
+  //  SwipeRefreshLayout swipeRefreshLayout;
     private static final String ARG_PARAM1 = "param1";
 
     private static final String ARG_PARAM2 = "param2";
@@ -108,7 +110,22 @@ public class SurveysTabFragment extends Fragment implements ConnectivityReceiver
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.universal_recycler_and_empty_view, container, false);
+
         unbinder = ButterKnife.bind(this, view);
+
+
+        /*swipeRefreshLayout = (SwipeRefreshLayout)view.findViewById(R.id.swipeOne);
+        swipeRefreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
+            @Override
+            public void onRefresh() {
+                initializeRecyclerHistory();
+                getSurveysHistory = linksService.surveysHistory(Helper.getAuthHeader(getContext()));
+
+                swipeRefreshLayout.setRefreshing(false);
+
+            }
+        });*/
+
         initializeRecyclerViewPager();
         return view;
     }
@@ -159,6 +176,7 @@ public class SurveysTabFragment extends Fragment implements ConnectivityReceiver
             case "History":
                 initializeRecyclerHistory();
                 getSurveysHistory = linksService.surveysHistory(Helper.getAuthHeader(getContext()));
+
                 break;
             case "Search":
                 initializeRecycler();
@@ -193,7 +211,7 @@ public class SurveysTabFragment extends Fragment implements ConnectivityReceiver
     private void initializeRecyclerHistory() {
         surveysHistoryList = new ArrayList<>();
         adapterSurveysHistory = new SurveysHistoryRecyclerAdapter(getContext(), surveysHistoryList);
-        System.out.println("My Survey List ====  "+surveysHistoryList);
+
         adapterSurveysHistory.registerAdapterDataObserver(new RecyclerView.AdapterDataObserver() {
             @Override
             public void onItemRangeInserted(int positionStart, int itemCount) {
@@ -202,9 +220,8 @@ public class SurveysTabFragment extends Fragment implements ConnectivityReceiver
                 if (positionStart == 0) {
                     recyclerView.smoothScrollToPosition(0);
                 }
-                SharedPreferences.Editor myPref = getActivity().getSharedPreferences("count", Context.MODE_PRIVATE).edit();
-                myPref.putString("countValue",String.valueOf(itemCount));
-                myPref.apply();
+
+                SharedPrefsUtils.getInstance(getContext()).setIntegerPreference("count_history",itemCount);
             }
         });
         recyclerView.setAdapter(new AlphaInAnimationAdapter(new ScaleInAnimationAdapter(adapterSurveysHistory)));
@@ -214,21 +231,20 @@ public class SurveysTabFragment extends Fragment implements ConnectivityReceiver
     private Callback<BaseListModel<Surveys>> surveysCallback = new Callback<BaseListModel<Surveys>>() {
         @Override
         public void onResponse(Call<BaseListModel<Surveys>> call, Response<BaseListModel<Surveys>> response) {
-            System.out.println("fdghjgffdg  ====  "+call.toString());
+
             if (response.isSuccessful()) {
                 BaseListModel<Surveys> baseListModelList = response.body();
                 ArrayList<Surveys> newList = baseListModelList.getResults();
-                System.out.println("data coming");
+
                 for (Surveys abc:
                      newList) {
                     System.out.println("=========");
                     System.out.println("ID"+abc.getSurvey().getTitle());
 
                 }
-               // System.out.println("Hera Pheri 3 === "+newList.get(0).getSurvey().getTitle());
 
                 try {
-                  //  System.out.println(newList.get(2));
+
                 }catch(Exception e){
                     e.printStackTrace();
                 }
@@ -284,7 +300,7 @@ public class SurveysTabFragment extends Fragment implements ConnectivityReceiver
 
         @Override
         public void onFailure(Call<BaseListModel<SurveysHistory>> call, Throwable t) {
-            Log.d("newPosts", "size: " + t.getCause());
+            Log.d("newPosts    >", "size: " + t.getCause());
             adapterSurveysHistory.hideLoading();
             isLoaderAdded = false;
         }

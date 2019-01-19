@@ -25,10 +25,10 @@ public class SurveysHistoryRecyclerAdapter extends EasyRecyclerViewAdapter<Surve
     private Context context;
     private ArrayList<SurveysHistory> dataList;
 
-    public SurveysHistoryRecyclerAdapter(Context context, ArrayList<SurveysHistory> surveysHistoryList) {
-        super(context, surveysHistoryList);
+    public SurveysHistoryRecyclerAdapter(Context context, ArrayList<SurveysHistory> dataList) {
+        super(context, dataList);
         this.context = context;
-        this.dataList = surveysHistoryList;
+        this.dataList = dataList;
     }
 
     @Override

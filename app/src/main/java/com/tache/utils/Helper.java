@@ -126,8 +126,9 @@ public class Helper {
     public static boolean isLoggedIn(Context context) {
         SharedPrefsUtils sharedPrefsUtils = new SharedPrefsUtils(context);
         String authKey = sharedPrefsUtils.getStringPreference(SharedPrefsUtils.USER_AUTH_KEY);
-        boolean mobile = sharedPrefsUtils.getBooleanPreference(SharedPrefsUtils.USER_MOBILE_VERIFIED, false);
-        return authKey != null && mobile;
+//        boolean mobile = sharedPrefsUtils.getBooleanPreference(SharedPrefsUtils.USER_MOBILE_VERIFIED, false);
+        boolean islogin = sharedPrefsUtils.getBooleanPreference("login",false);
+        return authKey != null && islogin;
     }
 
     private static void getSettings(String token, final SharedPrefsUtils sharedPrefsUtils) {

@@ -1,5 +1,8 @@
 package com.tache.rest;
 
+import java.util.concurrent.TimeUnit;
+
+import okhttp3.OkHttpClient;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
@@ -16,9 +19,17 @@ public class ApiUtils {
     private static Retrofit retrofitInstance;
 
     public static Retrofit retrofitInstance() {
+
+        OkHttpClient okHttpClient = new OkHttpClient.Builder()
+                .connectTimeout(2, TimeUnit.MINUTES)
+                .readTimeout(2, TimeUnit.MINUTES)
+                .writeTimeout(2, TimeUnit.MINUTES)
+                .build();
+
         if (retrofitInstance == null) {
             retrofitInstance = new Retrofit.Builder()
                     .baseUrl(BASEURL)
+                    .client(okHttpClient)
                     .addConverterFactory(GsonConverterFactory.create())
                     .build();
         }

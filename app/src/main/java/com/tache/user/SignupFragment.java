@@ -185,6 +185,10 @@ public class SignupFragment extends Fragment {
             passwordView.setError(getString(R.string.error_password_required));
             return;
         }
+        if (passwordView.getText().toString().trim().length() < 6) {
+            passwordView.setError(getString(R.string.minimum_six_digits));
+            return;
+        }
         if (TextUtils.isEmpty(passwordConfirmView.getText())) {
             passwordConfirmView.setError(getString(R.string.error_password_confirm_required));
             return;

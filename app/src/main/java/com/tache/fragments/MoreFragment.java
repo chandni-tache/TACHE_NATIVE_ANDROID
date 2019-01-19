@@ -23,6 +23,7 @@ import com.tache.R;
 import com.tache.activity.ContactUs;
 import com.tache.activity.SendReferralActivity;
 import com.tache.utils.Helper;
+import com.tache.utils.SharedPrefsUtils;
 
 import butterknife.ButterKnife;
 import butterknife.OnClick;
@@ -99,6 +100,7 @@ public class MoreFragment extends Fragment implements View.OnClickListener {
         alertDialogBuilder.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialogInterface, int i) {
+                clearValue();
                 Helper.onLogout(getContext(), true);
             }
         });
@@ -109,6 +111,12 @@ public class MoreFragment extends Fragment implements View.OnClickListener {
             }
         });
         alertDialogBuilder.show();
+    }
+
+    void clearValue()
+    {
+        SharedPrefsUtils.getInstance(getContext()).setBooleanPreference("login",false);
+        SharedPrefsUtils.getInstance(getContext()).setIntegerPreference("count_history",0);
     }
 
 }

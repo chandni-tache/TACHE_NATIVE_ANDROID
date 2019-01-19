@@ -56,11 +56,14 @@ public class SplashActivity extends AppCompatActivity {
                 if (new SharedPrefsUtils(SplashActivity.this).getBooleanPreference(SharedPrefsUtils.SHOW_WALKTHROUGH, true)) {
                     intent = new Intent(SplashActivity.this, WalkthroughActivity.class);
                 } else if (Helper.isLoggedIn(SplashActivity.this)) {
-                    intent = new Intent(SplashActivity.this, LoginActivity.class);
+                    intent = new Intent(SplashActivity.this, MainActivity.class);
                     //intent.putExtra("postid", postId);
-                } else {
+                } else if(!Helper.isLoggedIn(SplashActivity.this)) {
+                    intent = new Intent(SplashActivity.this, LoginActivity.class);
+                }else {
                     intent = new Intent(SplashActivity.this, MainActivity.class);
                 }
+
                 startActivity(intent);
                 finish();
             }

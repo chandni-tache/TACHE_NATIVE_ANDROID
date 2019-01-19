@@ -157,7 +157,7 @@ public class LoginFragment extends Fragment {
                 showProgress(false);
                 if (response.isSuccessful()) {
                     Helper.saveSignInResponse(getContext(), Constants.LOGIN_TYPE_EMAIL, response.body());
-
+                        SharedPrefsUtils.getInstance(getContext()).setBooleanPreference("login",true);
                     Intent intent = new Intent(getContext(),MainActivity.class);
                     intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                     getContext().startActivity(intent);

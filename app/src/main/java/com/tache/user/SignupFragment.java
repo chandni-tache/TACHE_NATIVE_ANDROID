@@ -219,7 +219,7 @@ public class SignupFragment extends Fragment {
         view.scrollTo(0, 0);
         // Build.VERSION.SDK_INT <=27 &&
         if ( ContextCompat.checkSelfPermission(getContext(), Manifest.permission.RECEIVE_SMS) != PackageManager.PERMISSION_GRANTED) {
-            Toast.makeText(getContext(), "Grant permission for automatic OTP verification", Toast.LENGTH_SHORT).show();
+            //Toast.makeText(getContext(), "Grant permission for automatic OTP verification", Toast.LENGTH_SHORT).show();
             ActivityCompat.requestPermissions(getActivity(), new String[]{Manifest.permission.RECEIVE_SMS}, 99);
         }
     }

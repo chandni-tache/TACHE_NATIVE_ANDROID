@@ -96,6 +96,7 @@ dependencies {
     //noinspection GradleCompatible
     implementation 'com.google.firebase:firebase-messaging:17.3.4'
     implementation 'com.google.firebase:firebase-firestore:17.1.5'
+    implementation 'com.google.android.gms:play-services:12.0.1'
     implementation 'com.google.firebase:firebase-core:16.0.6'
     implementation 'com.google.android.gms:play-services-places:16.0.0'
     implementation 'com.google.android.gms:play-services-location:16.0.0'

@@ -85,7 +85,7 @@ public class SurveysRecyclerAdapter extends EasyRecyclerViewAdapter<Surveys> {
 
                     System.out.println("Hello url == "+String.format(LinksService.TASK_URL, dataList.get(getAdapterPosition()).getId(), Helper.getAuthKey(context)));
 
-                    Toast.makeText(context, "Jai ho.....", Toast.LENGTH_SHORT).show();
+              //      Toast.makeText(context, "Jai ho.....", Toast.LENGTH_SHORT).show();
                     //using Activity for webView for now..
                   //  EventBus.getDefault().post(WebViewFragment.newInstance(String.format(LinksService.TASK_URL, dataList.get(getAdapterPosition()).getId(), Helper.getAuthKey(context))));
                 }
@@ -107,7 +107,7 @@ public class SurveysRecyclerAdapter extends EasyRecyclerViewAdapter<Surveys> {
             timeSummary.setText(TimeFormatHelper.getDaysHoursMinutes(item.getDate_to()));
 
             System.out.println("My Survey Title = == "+item.getSurvey().getTitle());
-            Toast.makeText(context, item.getSurvey().getTitle() , Toast.LENGTH_SHORT).show();
+        //    Toast.makeText(context, item.getSurvey().getTitle() , Toast.LENGTH_SHORT).show();
 
         }
     }

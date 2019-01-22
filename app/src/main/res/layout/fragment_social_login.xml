@@ -6,6 +6,7 @@
     android:layout_height="wrap_content"
     android:gravity="center"
     android:orientation="horizontal"
+    android:visibility="gone"
     tools:context="com.tache.user.SocialLoginFragment"
     tools:showIn="@layout/fragment_login">
 

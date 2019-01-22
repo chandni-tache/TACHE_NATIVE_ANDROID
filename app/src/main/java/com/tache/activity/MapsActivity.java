@@ -182,8 +182,7 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
         markers[0].setIcon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_BLUE));
         currMarker = markers[0];
 
-        System.out.println(" yyyyyyyyyyyyy ==== "+currMarker);
-        System.out.println(" zzzzzzzzzzzzz ==== "+currLocation);
+
         viewPager.addOnPageChangeListener(new ViewPager.SimpleOnPageChangeListener() {
             @Override
             public void onPageSelected(int position) {
@@ -340,11 +339,15 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
 
         }
 
-        if (locationHelper != null) {
-            locationHelper.buildClient();
-        } else {
+        if (locationHelper == null) {
+        //    locationHelper.buildClient();
             locationHelper = new LocationHelper(this);
             locationHelper.build();
+        } else {
+
+            locationHelper.buildClient();
+            /*locationHelper = new LocationHelper(this);
+            locationHelper.build();*/
         }
         if (ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
             // TODO: Consider calling
@@ -358,7 +361,15 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
         }
         mMap.setMyLocationEnabled(true);
         if (!canGetLocation()) {
-            if (!progressDialog.isShowing()) progressDialog.show();
+            /*if (!progressDialog.isShowing()){
+              //  progressDialog.show();
+              progressDialog.dismiss();
+                canGetLocation();
+
+            }*/
+            if (canGetLocation()) {
+                progressDialog.dismiss();
+            }
             locationHelper.setOnLocationReceivedListener(new LocationHelper.OnLocationReceivedListener() {
                 @Override
                 public void onLocationReceivedSuccess(LatLng latLng) {
@@ -369,7 +380,7 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
 
                 @Override
                 public void onLocationReceivedFailed() {
-                    if (!canGetLocation()) {
+                    if (canGetLocation()) {
                         progressDialog.dismiss();
                     }
                 }

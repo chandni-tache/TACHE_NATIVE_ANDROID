@@ -91,9 +91,9 @@ public class MissionsRecyclerAdapter extends EasyRecyclerViewAdapter<Mission> {
             dateRange.setText(TimeFormatHelper.getInDMY(item.getDate_from()) + " - " + TimeFormatHelper.getInDMY(item.getDate_to()));
             price.setText(String.valueOf(item.getPrice()));
 
-            System.out.println("Hello Mission = ====  "+item.getSurvey().getTitle());
-            System.out.println(" Mission Id 1 ===== "+item.getSurvey().getId());
-            Toast.makeText(context, item.getSurvey().getTitle(), Toast.LENGTH_SHORT).show();
+         //   System.out.println("Hello Mission = ====  "+item.getSurvey().getTitle());
+         //   System.out.println(" Mission Id 1 ===== "+item.getSurvey().getId());
+         //   Toast.makeText(context, item.getSurvey().getTitle(), Toast.LENGTH_SHORT).show();
 
 
 

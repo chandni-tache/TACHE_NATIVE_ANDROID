@@ -132,7 +132,7 @@ public class StartSurveyMissionActivity extends AppCompatActivity {
                     reload = true;
                     switch (status) {
                         case "complete":
-                            dialogStatus(what, what + " " + "completed!");
+                            dialogStatus(what, "You have done your "+what + ".");
                             break;
                         case "quota_full":
                             dialogStatus(what, what + " " + "quota full!");
@@ -145,7 +145,7 @@ public class StartSurveyMissionActivity extends AppCompatActivity {
                     dialogStatus(what, "Something went wrong!");
                 }
             }else {
-                Toast.makeText(StartSurveyMissionActivity.this, "ssssddddddd", Toast.LENGTH_SHORT).show();
+              //  Toast.makeText(StartSurveyMissionActivity.this, "ssssddddddd", Toast.LENGTH_SHORT).show();
             }
             return false;
         }

@@ -141,7 +141,7 @@ public class MainActivity extends AppCompatActivity implements WebViewFragment.O
                         setCityNameVisible(true);
                         break;
 
-                    case R.id.tab_trending:
+                    /*case R.id.tab_trending:
                         setCityNameVisible(createProfileFragment == null);
                         if (createProfileFragment != null && showLetsStart) {
                             DialogInterface.OnClickListener onClickListener = new DialogInterface.OnClickListener() {
@@ -161,7 +161,7 @@ public class MainActivity extends AppCompatActivity implements WebViewFragment.O
                         }
                         viewPager.setCurrentItem(1);
                         title = "Online panel";
-                        break;
+                        break;*/
 
                     case R.id.tab_add_new:
                         viewPager.setCurrentItem(2);

@@ -135,10 +135,10 @@ public class StartSurveyMissionActivity extends AppCompatActivity {
                             dialogStatus(what, "You have done your "+what + ".");
                             break;
                         case "quota_full":
-                            dialogStatus(what, what + " " + "quota full!");
+                            dialogStatus(what, what + " " + "quota has full!");
                             break;
                         case "terminate":
-                            dialogStatus(what, what + " " + "terminated!");
+                            dialogStatus(what, what + " " + "Survey has terminated!");
                             break;
                     }
                 } else {

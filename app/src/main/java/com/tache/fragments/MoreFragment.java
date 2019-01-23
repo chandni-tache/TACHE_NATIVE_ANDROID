@@ -117,6 +117,7 @@ public class MoreFragment extends Fragment implements View.OnClickListener {
     {
         SharedPrefsUtils.getInstance(getContext()).setBooleanPreference("login",false);
         SharedPrefsUtils.getInstance(getContext()).setIntegerPreference("count_history",0);
+        SharedPrefsUtils.getInstance(getContext()).setIntegerPreference("count_history_audit",0);
     }
 
 }

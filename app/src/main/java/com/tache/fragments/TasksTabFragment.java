@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
+import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
@@ -29,6 +30,7 @@ import com.tache.rest.models.response.MissionHistory;
 import com.tache.rest.services.LinksService;
 import com.tache.utils.EndlessRecyclerViewScrollListener;
 import com.tache.utils.Helper;
+import com.tache.utils.SharedPrefsUtils;
 
 import org.greenrobot.eventbus.EventBus;
 import org.greenrobot.eventbus.Subscribe;
@@ -71,6 +73,7 @@ public class TasksTabFragment extends Fragment implements ConnectivityReceiver.C
     private boolean isLoaded = false;
     private String nextUrl;
     private boolean isLoaderAdded = false;
+   // SwipeRefreshLayout refreshLayout;
 
     private static final String ARG_PARAM1 = "param1";
 
@@ -119,6 +122,11 @@ public class TasksTabFragment extends Fragment implements ConnectivityReceiver.C
         View view = inflater.inflate(R.layout.universal_recycler_and_empty_view, container, false);
         unbinder = ButterKnife.bind(this, view);
         initializeRecyclerViewPager();
+
+      //  refreshLayout = (SwipeRefreshLayout)view.findViewById(R.id.swipeOne);
+
+
+
         return view;
     }
 
@@ -221,6 +229,7 @@ public class TasksTabFragment extends Fragment implements ConnectivityReceiver.C
                 if (positionStart == 0) {
                     recyclerView.smoothScrollToPosition(0);
                 }
+                SharedPrefsUtils.getInstance(getContext()).setIntegerPreference("count_history_audit",itemCount);
             }
         });
         recyclerView.setAdapter(new AlphaInAnimationAdapter(new ScaleInAnimationAdapter(adapterMissionsHistory)));
@@ -378,4 +387,6 @@ public class TasksTabFragment extends Fragment implements ConnectivityReceiver.C
         isLoaded = true;
         loadData();
     }
+
+
 }

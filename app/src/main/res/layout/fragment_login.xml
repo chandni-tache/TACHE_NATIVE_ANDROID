@@ -119,6 +119,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
             android:gravity="center"
+            android:visibility="gone"
             android:text="Or Continue with"
             android:textAppearance="@android:style/TextAppearance.DeviceDefault.Small" />
 
@@ -133,7 +134,9 @@
 
         <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            >
 
             <TextView
                 android:id="@+id/switch_forget_password"

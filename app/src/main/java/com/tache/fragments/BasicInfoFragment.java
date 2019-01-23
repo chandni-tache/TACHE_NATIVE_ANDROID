@@ -106,8 +106,10 @@ public class BasicInfoFragment extends Fragment implements View.OnClickListener 
 //        System.out.println("Completed Survey ===== "+user.getTotal_survey_completed());
 
         int panelCount= SharedPrefsUtils.getInstance(getContext()).getIntegerPreference("count_history",0);
-        countTask.setText(String.valueOf(user.getTotal_missions_completed()));
+        int auditCount = SharedPrefsUtils.getInstance(getContext()).getIntegerPreference("count_history_audit",0);
+       // countTask.setText(String.valueOf(user.getTotal_missions_completed()));
         countSurvey.setText(panelCount+"");
+        countTask.setText(auditCount+"");
         balance.setText(String.valueOf(user.getTotal_earnings()));
     }
 

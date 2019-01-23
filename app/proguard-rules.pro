@@ -36,6 +36,10 @@
   public *;
 }
 
+-keep public class com.google.android.gms.* { public *; }
+-dontwarn com.google.android.gms.**
+
+
 -dontwarn org.bouncycastle.**
 -keep class org.bouncycastle.** { *; }
 -keep class com.droidninja.filepicker.** { *; }
@@ -49,6 +53,8 @@
 
 -keep enum org.greenrobot.eventbus.ThreadMode { *; }
 
+-keep class com.google.android.gms.internal.** { *; }
+
 ## Only required if you use AsyncExecutor
 #-keepclassmembers class * extends org.greenrobot.eventbus.util.ThrowableFailureEvent {
 #    <init>(java.lang.Throwable);
@@ -58,6 +64,10 @@
 -keep interface org.parceler.Parcel
 -keep @org.parceler.Parcel class * { *; }
 -keep class **$$Parcelable { *; }
+
+-dontwarn com.google.firebase.messaging.**
+# Already present in the Android runtime.
+-dontwarn org.apache.http.**
 
 -dontwarn com.roughike.bottombar.**
 

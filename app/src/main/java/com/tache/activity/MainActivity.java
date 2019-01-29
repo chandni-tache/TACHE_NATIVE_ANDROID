@@ -119,7 +119,9 @@ public class MainActivity extends AppCompatActivity implements WebViewFragment.O
         adapter = new UniversalStatePagerAdapter(getSupportFragmentManager());
         adapter.addFrag(new TasksFragment(), "Tasks");
         if (hasProfile) {
-            adapter.addFrag(surveyFragment, "Surveys");
+            adapter.addFrag(surveyFragment, "Survey");
+          //  adapter.addFrag(new TasksFragment(), "Tasks");
+           // adapter.addFrag(profileFragment, "Profile");
         } else {
             createProfileFragment = EditProfileFragment.newInstance(null);
             adapter.addFrag(createProfileFragment, "Surveys");
@@ -141,7 +143,7 @@ public class MainActivity extends AppCompatActivity implements WebViewFragment.O
                         setCityNameVisible(true);
                         break;
 
-                    /*case R.id.tab_trending:
+                    case R.id.tab_trending:
                         setCityNameVisible(createProfileFragment == null);
                         if (createProfileFragment != null && showLetsStart) {
                             DialogInterface.OnClickListener onClickListener = new DialogInterface.OnClickListener() {
@@ -161,7 +163,7 @@ public class MainActivity extends AppCompatActivity implements WebViewFragment.O
                         }
                         viewPager.setCurrentItem(1);
                         title = "Online panel";
-                        break;*/
+                        break;
 
                     case R.id.tab_add_new:
                         viewPager.setCurrentItem(2);
@@ -170,6 +172,25 @@ public class MainActivity extends AppCompatActivity implements WebViewFragment.O
                         break;
 
                     case R.id.tab_leaderboard:
+                        /*setCityNameVisible(createProfileFragment == null);
+                        if (createProfileFragment != null && showLetsStart) {
+                            DialogInterface.OnClickListener onClickListener = new DialogInterface.OnClickListener() {
+                                @Override
+                                public void onClick(DialogInterface dialog, int which) {
+                                    dialog.dismiss();
+                                    if (which == Dialog.BUTTON_NEGATIVE) goToPage(0);
+                                }
+                            };
+                            AlertDialog.Builder builder = new AlertDialog.Builder(MainActivity.this);
+                            builder.setTitle("Let's start with Survey")
+                                    .setMessage("To continue with survey you will need to provide some of the required details in subject to provide you best related survey to be fill by you. So let's start\n")
+                                    .setNegativeButton("BACK", onClickListener)
+                                    .setPositiveButton("CONTINUE", onClickListener)
+                                    .setCancelable(false)
+                                    .show().getButton(Dialog.BUTTON_NEGATIVE).setTextColor(ContextCompat.getColor(MainActivity.this, R.color.textColorSecondary));
+                        }*/
+
+
                         viewPager.setCurrentItem(3);
                         title = "Profile";
                         setCityNameVisible(false);
@@ -270,7 +291,7 @@ public class MainActivity extends AppCompatActivity implements WebViewFragment.O
     Callback<JsonObject> referralCallback = new Callback<JsonObject>() {
         @Override
         public void onResponse(Call<JsonObject> call, Response<JsonObject> response) {
-           System.out.println(" Response aara hai........ "+response.toString());
+
             if (response.isSuccessful()) {
                 profileFragment.initializeUserCall();
                 Toast.makeText(MainActivity.this, "Referral code applied.", Toast.LENGTH_SHORT).show();
@@ -331,11 +352,11 @@ public class MainActivity extends AppCompatActivity implements WebViewFragment.O
 
     @Override
     public void onBackPressed() {
-        if (adapter.getItem(3).getClass().equals(EditProfileFragment.class)) {
-            adapter.replaceFrag(editProfileFragment, profileFragment);
+        if (adapter.getItem(1).getClass().equals(EditProfileFragment.class)) {
+            adapter.replaceFrag(editProfileFragment, surveyFragment);
             profileFragment.initializeNetworkCall();
-        } else if (viewPager.getCurrentItem() != 0) {
-            goToPage(0);
+        } else if (viewPager.getCurrentItem() != 1) {
+            goToPage(1);
         } else {
             if (exit) {
                 exitToast.cancel();

@@ -7,11 +7,11 @@
         id="@+id/tab_home"
         title="Audit" />
 
-    <!--<tab
+    <tab
         icon="@drawable/survey_inactive"
         id="@+id/tab_trending"
 
-        title="Panel" />-->
+        title="Panel" />
 
     <tab
         icon="@drawable/notification_inactive"

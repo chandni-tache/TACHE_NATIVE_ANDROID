@@ -28,8 +28,9 @@ import retrofit2.http.Url;
  */
 
 public interface LinksService {
-    String TASK_URL = "http://52.66.195.101/links/app/start-survey/%s/%s/";
-
+   // String TASK_URL = "http://52.66.195.101/links/app/start-survey/%s/%s/";
+    String TASK_URL = "http://13.233.186.205/links/app/start-survey/%s/%s/";
+//http://13.233.186.205/
     @GET("/links/missions/")
     Call<BaseListModel<Mission>> searchTask(@Header("Authorization") String token,
                                             @Query("q") String query,

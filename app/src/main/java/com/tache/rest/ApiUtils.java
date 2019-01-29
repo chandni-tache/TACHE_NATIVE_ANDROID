@@ -15,7 +15,8 @@ public class ApiUtils {
 //     public static final String BASEURL = "http://192.168.1.14:8000/";
  //   public static final String BASEURL = "http://35.154.18.134:94/";
     //public static final String BASEURL = "http://ec2-13-233-195-121.ap-south-1.compute.amazonaws.com/";
-    public static final String BASEURL = "http://52.66.195.101/";
+   //  public static final String BASEURL = "http://52.66.195.101/";
+    public static final String BASEURL = "http://13.233.186.205/";
     private static Retrofit retrofitInstance;
 
     public static Retrofit retrofitInstance() {

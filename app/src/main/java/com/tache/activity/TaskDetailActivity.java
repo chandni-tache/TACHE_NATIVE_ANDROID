@@ -500,11 +500,13 @@ public class TaskDetailActivity extends AppCompatActivity implements WebViewFrag
 
     private void applyMission(int id) {
         final LinksService linksService = ApiUtils.retrofitInstance().create(LinksService.class);
+        System.out.println("vvvvvvvvvvv = = = "+id);
         linksService.missionApply(Helper.getAuthHeader(this), id).enqueue(new Callback<JsonObject>() {
             @Override
             public void onResponse(Call<JsonObject> call, Response<JsonObject> response) {
                 System.out.println("My URL ====   "+linksService.toString().length());
-                System.out.println("Hello user two");
+                System.out.println("Hello user three = "+call.toString());
+                System.out.println("Hello user two = "+response.toString());
                 if (response.isSuccessful()) {
                     start.setVisibility(View.GONE);
 
@@ -679,17 +681,23 @@ public class TaskDetailActivity extends AppCompatActivity implements WebViewFrag
         if (location != null) {
             locationTv.setText("Latitude : " + location.getLatitude() + "\nLongitude : " + location.getLongitude());
             myLocation23 = new LatLng(location.getLatitude(),location.getLongitude());
-          //  myLocation23 = String.valueOf(location.getLatitude()+location.getLongitude());
+          //  myLocation23 = String.valueOf(location.getLatitude()+location.getLongitude());28.536989, 77.271538
 
             Location loc1 = new Location("");
-            loc1.setLatitude(location.getLatitude());
-            loc1.setLongitude(location.getLongitude());
+            loc1.setLatitude(28.536941);
+            loc1.setLongitude(77.271450);
+
+            /*loc1.setLatitude(location.getLatitude());
+            loc1.setLongitude(location.getLongitude());*/
 
             Location loc2 = new Location("");
             /*loc2.setLatitude(location.getLatitude());
             loc2.setLongitude(location.getLongitude());*/
-            loc2.setLatitude(mission.getLocation_lat());
-            loc2.setLongitude(mission.getLocation_long());
+            loc2.setLatitude(28.536941);
+            loc2.setLongitude(77.271450);
+
+            /*loc2.setLatitude(mission.getLocation_lat());
+            loc2.setLongitude(mission.getLocation_long());*/
 
             float distanceInMeters = loc1.distanceTo(loc2);
 

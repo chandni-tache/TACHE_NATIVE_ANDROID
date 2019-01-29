@@ -405,10 +405,12 @@ public class EditProfileFragment extends Fragment {
             Call<ProfileInfo> updateProfileCall = isInEditMode
                     ? profileService.updateProfile(Helper.getAuthHeader(getContext()), profileInfo)
                     : profileService.createProfile(Helper.getAuthHeader(getContext()), profileInfo);
+            System.out.println("Edit Profile = "+profileInfo);
             updateProfileCall.enqueue(new Callback<ProfileInfo>() {
                 @Override
                 public void onResponse(Call<ProfileInfo> call, Response<ProfileInfo> response) {
                     if (response.isSuccessful()) {
+                        System.out.println("Edit Profile234 = "+response.toString());
                         Toast.makeText(getContext(), "User details updated", Toast.LENGTH_SHORT).show();
                         sharedPrefsUtils.setBooleanPreference(SharedPrefsUtils.USER_HAS_PROFILE, true);
                         EventBus.getDefault().post(new ProfileUpdatedEvent(true));
